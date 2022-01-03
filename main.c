@@ -152,8 +152,8 @@ static void __exit ebbgpio_exit(void) {
 /* Handler for button 1 */
 static irq_handler_t ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct pt_regs *regs) {
     /* Set LED as ON */
-    redOn = true;
-    gpio_set_value(gpioRed, redOn);
+    blueOn = true;
+    gpio_set_value(gpioBlue, blueOn);
 
     /* Increase counter of times button has been pressed */
     buttonPressed1++;
@@ -167,8 +167,8 @@ static irq_handler_t ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct
 /* Handler for button 2 */
 static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct pt_regs *regs) {
     /* Set LED as OFF */
-    redOn = false;
-    gpio_set_value(gpioRed, redOn);
+    blueOn = false;
+    gpio_set_value(gpioBlue, blueOn);
 
     /* Increase counter of times button has been pressed */
     buttonPressed2++;
@@ -182,8 +182,8 @@ static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct
 /* Handler for button 3 */
 static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct pt_regs *regs) {
     /* Set LED as ON */
-    blueOn = true;
-    gpio_set_value(gpioBlue, blueOn);
+    redOn = true;
+    gpio_set_value(gpioRed, redOn);
 
     /* Increase counter of times button has been pressed */
     buttonPressed3++;
@@ -194,11 +194,11 @@ static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct
     return (irq_handler_t) IRQ_HANDLED;
 }
 
-/* Handler for button 2 */
+/* Handler for button 4 */
 static irq_handler_t ebbgpio_irq_handler4(unsigned int irq, void *dev_id, struct pt_regs *regs) {
     /* Set LED as OFF */
     redOn = false;
-    gpio_set_value(gpioBlue, blueOn);
+    gpio_set_value(gpioRed, redOn);
 
     /* Increase counter of times button has been pressed */
     buttonPressed4++;
