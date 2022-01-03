@@ -46,17 +46,17 @@ static int __init ebbgpio_init(void) {
     int result = 0;
 
     /* Print message on initialize to the kernel */
-    printk(KERN_INFO, "LEDs: Initializing LEDs main program LKM\n");
+    printk(KERN_INFO "LEDs: Initializing LEDs main program LKM\n");
 
     /* Check if LED 1 has been properly assigned */
     if(!gpio_is_valid(gpioRed)) {
-        printk(KERN_INFO, "LEDs: Invalid gpioRed\n");
+        printk(KERN_INFO "LEDs: Invalid gpioRed\n");
         return -ENODEV;
     }
 
     /* Check if LED 2 has been properly assigned */
     if(!gpio_is_valid(gpioBlue)) {
-        printk(KERN_INFO, "LEDs: Invalid gpioBlue\n");
+        printk(KERN_INFO "LEDs: Invalid gpioBlue\n");
         return -ENODEV;
     }
 
@@ -110,16 +110,16 @@ static int __init ebbgpio_init(void) {
 
 static void __exit ebbgpio_exit(void) {
     /* Show messages informing of the buttons' status */
-    printk(KERN_INFO, "LEDs: Button 1 is currently: %d\n", gpio_get_value(gpioButton1));
-    printk(KERN_INFO, "LEDs: Button 2 is currently: %d\n", gpio_get_value(gpioButton2));
-    printk(KERN_INFO, "LEDs: Button 3 is currently: %d\n", gpio_get_value(gpioButton3));
-    printk(KERN_INFO, "LEDs: Button 4 is currently: %d\n", gpio_get_value(gpioButton4));
+    printk(KERN_INFO "LEDs: Button 1 is currently: %d\n", gpio_get_value(gpioButton1));
+    printk(KERN_INFO "LEDs: Button 2 is currently: %d\n", gpio_get_value(gpioButton2));
+    printk(KERN_INFO "LEDs: Button 3 is currently: %d\n", gpio_get_value(gpioButton3));
+    printk(KERN_INFO "LEDs: Button 4 is currently: %d\n", gpio_get_value(gpioButton4));
 
     /* Show messages informing of the number of times each button has been pressed */
-    printk(KERN_INFO, "LEDs: Button 1 was pressed %d times\n", buttonPressed1);
-    printk(KERN_INFO, "LEDs: Button 2 was pressed %d times\n", buttonPressed2);
-    printk(KERN_INFO, "LEDs: Button 3 was pressed %d times\n", buttonPressed3);
-    printk(KERN_INFO, "LEDs: Button 4 was pressed %d times\n", buttonPressed4);
+    printk(KERN_INFO "LEDs: Button 1 was pressed %d times\n", buttonPressed1);
+    printk(KERN_INFO "LEDs: Button 2 was pressed %d times\n", buttonPressed2);
+    printk(KERN_INFO "LEDs: Button 3 was pressed %d times\n", buttonPressed3);
+    printk(KERN_INFO "LEDs: Button 4 was pressed %d times\n", buttonPressed4);
 
     /* Unlinking pins and free up memory reserved for the irq */
     gpio_set_value(gpioRed, 0);
@@ -146,7 +146,7 @@ static void __exit ebbgpio_exit(void) {
     gpio_free(gpioButton4);
 
     /* Show message on exit */
-    printk(KERN_INFO, "LEDs: Goodbye form the LKM\n");
+    printk(KERN_INFO "LEDs: Goodbye form the LKM\n");
 }
 
 /* Handler for button 1 */
@@ -159,7 +159,7 @@ static irq_handler_t ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct
     buttonPressed1++;
 
     /* Print message on press button */
-    printk(KERN_INFO, "Button 1 has been pressed\n");
+    printk(KERN_INFO "Button 1 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
@@ -174,7 +174,7 @@ static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct
     buttonPressed2++;
 
     /* Print message on press button */
-    printk(KERN_INFO, "Button 2 has been pressed\n");
+    printk(KERN_INFO "Button 2 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
@@ -189,7 +189,7 @@ static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct
     buttonPressed3++;
 
     /* Print message on press button */
-    printk(KERN_INFO, "Button 3 has been pressed\n");
+    printk(KERN_INFO "Button 3 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
@@ -204,7 +204,7 @@ static irq_handler_t ebbgpio_irq_handler4(unsigned int irq, void *dev_id, struct
     buttonPressed4++;
 
     /* Print message on press button */
-    printk(KERN_INFO, "Button 4 has been pressed\n");
+    printk(KERN_INFO "Button 4 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
