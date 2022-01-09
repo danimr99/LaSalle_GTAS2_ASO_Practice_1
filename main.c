@@ -146,7 +146,7 @@ static void __exit ebbgpio_exit(void) {
     gpio_free(gpioButton4);
 
     /* Show message on exit */
-    printk(KERN_INFO "LEDs: Goodbye form the LKM\n");
+    printk(KERN_INFO "LEDs: Goodbye from the LKM\n");
 }
 
 /* Handler for button 1 */
