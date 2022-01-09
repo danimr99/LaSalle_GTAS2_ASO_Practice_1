@@ -159,7 +159,7 @@ static irq_handler_t ebbgpio_irq_handler1(unsigned int irq, void *dev_id, struct
     buttonPressed1++;
 
     /* Print message on press button */
-    printk(KERN_INFO "Button 1 has been pressed\n");
+    printk(KERN_INFO "LEDs: Button 1 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
