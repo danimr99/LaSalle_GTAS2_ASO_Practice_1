@@ -174,7 +174,7 @@ static irq_handler_t ebbgpio_irq_handler2(unsigned int irq, void *dev_id, struct
     buttonPressed2++;
 
     /* Print message on press button */
-    printk(KERN_INFO "Button 2 has been pressed\n");
+    printk(KERN_INFO "LEDs: Button 2 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
@@ -189,7 +189,7 @@ static irq_handler_t ebbgpio_irq_handler3(unsigned int irq, void *dev_id, struct
     buttonPressed3++;
 
     /* Print message on press button */
-    printk(KERN_INFO "Button 3 has been pressed\n");
+    printk(KERN_INFO "LEDs: Button 3 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
@@ -204,7 +204,7 @@ static irq_handler_t ebbgpio_irq_handler4(unsigned int irq, void *dev_id, struct
     buttonPressed4++;
 
     /* Print message on press button */
-    printk(KERN_INFO "Button 4 has been pressed\n");
+    printk(KERN_INFO "LEDs: Button 4 has been pressed\n");
 
     return (irq_handler_t) IRQ_HANDLED;
 }
